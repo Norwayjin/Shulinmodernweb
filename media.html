@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>影音資訊 | 樹林現代診所</title>
+<meta name="description" content="樹林現代診所影音衛教資訊，包含腸胃鏡、超音波及各項健康主題影片。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.shulinmodern.com.tw/media.html">
+<meta property="og:title" content="影音資訊 | 樹林現代診所">
+<meta property="og:description" content="樹林現代診所的衛教影音與診所介紹影片，帶您認識舒眠腸胃鏡、內視鏡超音波等檢查與診所環境。">
+<meta property="og:url" content="https://www.shulinmodern.com.tw/media.html">
+<meta property="og:image" content="https://www.shulinmodern.com.tw/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .media-section { background: var(--white); }
+
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .media-card {
+    border: 1px solid rgba(26,74,58,0.1); background: var(--white);
+    overflow: hidden; transition: box-shadow 0.2s;
+  }
+  .media-card:hover { box-shadow: 0 8px 32px rgba(26,74,58,0.1); }
+
+  /* Facebook embed wrapper */
+  .media-embed {
+    background: #f0f2f5;
+    display: flex; justify-content: center; align-items: flex-start;
+    min-height: 300px; overflow: hidden;
+  }
+  /* Scale FB embed to fill container */
+  .media-embed .fb-video,
+  .media-embed .fb-post {
+    width: 100% !important;
+  }
+
+  /* Placeholder when no video added yet */
+  .media-placeholder {
+    min-height: 300px; width: 100%;
+    background: var(--green-pale);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 1rem; padding: 2rem;
+  }
+  .media-placeholder i { font-size: 3rem; color: var(--green-mid); }
+  .media-placeholder p { font-size: 0.875rem; color: var(--gray-text); text-align: center; line-height: 1.7; }
+
+  .media-card-body { padding: 1.5rem; }
+  .media-card-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .media-cat {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+    background: var(--green-pale); color: var(--green-deep); padding: 0.2rem 0.65rem;
+  }
+  .media-date { font-size: 0.75rem; color: var(--gray-text); }
+  .media-card-title {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+    color: var(--green-deep); line-height: 1.5; margin-bottom: 0.5rem;
+  }
+  .media-card-desc {
+    font-size: 0.875rem; color: var(--gray-text); line-height: 1.9; font-weight: 300;
+  }
+
+  /* How-to box */
+  .how-to-section { background: var(--gray-light); }
+  .how-to-box {
+    background: var(--white); padding: 1.75rem 2rem;
+    border-left: 3px solid var(--green-mid); max-width: 680px;
+    font-size: 0.9rem; color: var(--gray-text); line-height: 2.1;
+  }
+  .how-to-box strong { color: var(--green-deep); }
+  .how-to-box code { background: var(--green-pale); padding: 1px 5px; font-size: 0.85em; color: var(--green-deep); }
+  .how-to-box ol { padding-left: 1.25rem; }
+  .how-to-box li { margin-bottom: 0.25rem; }
+
+  @media (max-width: 1024px) {
+    .media-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .media-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Facebook SDK — 放在 body 最前面 -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v19.0"></script>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#news">最新消息</a></li>
+    <li><a href="index.html#services">診所服務</a></li>
+    <li><a href="index.html#doctors">醫師介紹</a></li>
+    <li><a href="index.html#queue">看診號碼</a></li>
+    <li><a href="index.html#hours">門診時間</a></li>
+    <li><a href="health.html">衛教文章</a></li>
+    <li><a href="media.html" class="active">影音資訊</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://www.mainpi.com/query?i=3176" target="_blank" class="nav-cta">查詢看診號碼</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-hero-tag">HEALTH MEDIA</span>
+    <h1 class="page-hero-title">影音資訊</h1>
+    <p class="page-hero-desc">透過影片了解各項醫療檢查與健康衛教，掌握正確的健康觀念。</p>
+  </div>
+</div>
+
+<!-- MEDIA GRID -->
+<section class="media-section">
+  <div class="media-grid">
+
+    <!-- ===== 影片卡片範本 ===== -->
+    <!--
+      嵌入 Facebook 影片步驟：
+      1. 到 FB 粉絲頁找到影片，點右上角「⋯」→「嵌入」
+      2. 複製影片網址（格式：https://www.facebook.com/.../videos/XXXXX/）
+      3. 將下方 data-href="YOUR_VIDEO_URL" 換成實際網址
+      4. 刪除 <div class="media-placeholder">...</div> 那整塊
+      5. 取消 fb-video 那行的 HTML 註解
+    -->
+
+    <div class="media-card">
+      <div class="media-embed" style="min-height:476px;">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1025810800012359%2F&show_text=false&width=267&t=0"
+          width="267" height="476"
+          style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <div class="media-card-body">
+        <div class="media-card-meta">
+          <span class="media-cat">兒科衛教</span>
+          <span class="media-date">2026-06-04</span>
+        </div>
+        <h2 class="media-card-title">12 到 18 歲的國高中生，這依然是兒科醫師的守護範疇！</h2>
+        <p class="media-card-desc">樹林現代內科診所針對青少年體質與發育階段精準用藥，青春期是孩子成長的關鍵時刻。讓我們一起陪著孩子穩健長大！</p>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="media-embed" style="min-height:476px;">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2494204257695066%2F&show_text=false&width=267&t=0"
+          width="267" height="476"
+          style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <div class="media-card-body">
+        <div class="media-card-meta">
+          <span class="media-cat">大腸癌</span>
+          <span class="media-date">2026-05-21</span>
+        </div>
+        <h2 class="media-card-title">大便有血...除了是痔瘡可能還有其他原因！</h2>
+        <p class="media-card-desc">大腸癌「早期幾乎沒感覺」，想要安心，最可靠的方式就是預約大腸鏡檢查，主動找出原因。</p>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="media-embed" style="min-height:476px;">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F25953624534314707%2F&show_text=false&width=267&t=0"
+          width="267" height="476"
+          style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <div class="media-card-body">
+        <div class="media-card-meta">
+          <span class="media-cat">癌症篩檢</span>
+          <span class="media-date">2026-04-23</span>
+        </div>
+        <h2 class="media-card-title">胃癌與大腸癌篩檢新政策</h2>
+        <p class="media-card-desc">胃癌與大腸癌公費篩檢年齡提前至 45 歲！只要你年滿 45-74 歲，就能利用糞便篩檢同時檢測幽門桿菌與大腸癌風險。</p>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="media-embed" style="min-height:476px;">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F965542839388994%2F&show_text=false&width=267&t=0"
+          width="267" height="476"
+          style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <div class="media-card-body">
+        <div class="media-card-meta">
+          <span class="media-cat">代謝檢查</span>
+          <span class="media-date">2026-03-26</span>
+        </div>
+        <h2 class="media-card-title">下班後的輕盈計畫：樹林現代內科陪你找回狀態🏃‍♂️</h2>
+        <p class="media-card-desc">免去盲目節食的痛苦，用專業知識搭配飲食方案調整代謝。</p>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="media-embed" style="min-height:476px;">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1424413052146791%2F&show_text=false&width=267&t=0"
+          width="267" height="476"
+          style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <div class="media-card-body">
+        <div class="media-card-meta">
+          <span class="media-cat">腸胃內視鏡</span>
+          <span class="media-date">2025-05-01</span>
+        </div>
+        <h2 class="media-card-title">舒眠腸胃鏡檢查就在樹林現代診所！</h2>
+        <p class="media-card-desc">想做腸胃內視鏡只能跑醫學中心嗎?不用了！在樹林現代診所也可以接受醫學中心等級的內視鏡檢查喔！</p>
+      </div>
+    </div>
+
+    <div class="media-card">
+      <div class="media-embed" style="min-height:476px;">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1920103558738136%2F&show_text=false&width=267&t=0"
+          width="267" height="476"
+          style="border:none;overflow:hidden"
+          scrolling="no" frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <div class="media-card-body">
+        <div class="media-card-meta">
+          <span class="media-cat">腹部超音波</span>
+          <span class="media-date">2025-04-10</span>
+        </div>
+        <h2 class="media-card-title">肚子不舒服嗎？那來做個腹部超音波吧!</h2>
+        <p class="media-card-desc">腹部超音波不只能看肝臟，連膽囊、胰臟、大腸、甚至盲腸（闌尾發炎）都能評估！而且無侵入、無輻射、立即排檢，超高CP值的預防醫學，快速病灶篩檢✨</p>
+      </div>
+    </div>
+
+    <!-- ===== 在上方依範本新增新影片卡片 ===== -->
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所
+  </div>
+  <div class="footer-copy">© 2026 樹林現代診所 ・ 新北市樹林區中山路一段 78 號</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衛教文章 | 樹林現代診所</title>
+<meta name="description" content="樹林現代診所醫師撰寫的衛教文章，涵蓋腸胃鏡、超音波、慢性病管理、兒科及體重管理等健康知識。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.shulinmodern.com.tw/health.html">
+<meta property="og:title" content="衛教文章 | 樹林現代診所">
+<meta property="og:description" content="由醫師撰寫的專業衛教資訊，幫助您了解各項檢查與疾病預防知識。">
+<meta property="og:url" content="https://www.shulinmodern.com.tw/health.html">
+<meta property="og:image" content="https://www.shulinmodern.com.tw/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ---- 文章列表頁 ---- */
+  .articles-section { background: var(--white); }
+
+  .filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .filter-btn {
+    padding: 0.35rem 1rem; border: 1px solid rgba(26,74,58,0.2);
+    background: transparent; color: var(--gray-text);
+    font-family: var(--sans); font-size: 0.85rem; cursor: pointer;
+    transition: all 0.2s; letter-spacing: 0.04em;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--green-deep); color: #fff; border-color: var(--green-deep);
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .article-card {
+    border: 1px solid rgba(26,74,58,0.1); background: var(--white);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .article-card:hover { box-shadow: 0 8px 32px rgba(26,74,58,0.1); transform: translateY(-3px); }
+
+  .article-card-img {
+    height: 180px; background: var(--green-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: var(--green-mid); overflow: hidden;
+  }
+  .article-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .article-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .article-card-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .article-cat {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+    background: var(--green-pale); color: var(--green-deep); padding: 0.2rem 0.65rem;
+  }
+  .article-date { font-size: 0.75rem; color: var(--gray-text); }
+
+  .article-card-title {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+    color: var(--green-deep); line-height: 1.5; margin-bottom: 0.75rem;
+  }
+  .article-card-excerpt {
+    font-size: 0.875rem; color: var(--gray-text); line-height: 1.9;
+    font-weight: 300; flex: 1; margin-bottom: 1.25rem;
+  }
+  .article-card-link {
+    font-size: 0.82rem; color: var(--green-mid); text-decoration: none;
+    letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 0.35rem;
+    transition: color 0.2s;
+  }
+  .article-card-link:hover { color: var(--green-deep); }
+
+  @media (max-width: 768px) {
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#news">最新消息</a></li>
+    <li><a href="index.html#services">診所服務</a></li>
+    <li><a href="index.html#doctors">醫師介紹</a></li>
+    <li><a href="index.html#queue">看診號碼</a></li>
+    <li><a href="index.html#hours">門診時間</a></li>
+    <li><a href="health.html" class="active">衛教文章</a></li>
+    <li><a href="media.html">影音資訊</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://www.mainpi.com/query?i=3176" target="_blank" class="nav-cta">查詢看診號碼</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-hero-tag">HEALTH EDUCATION</span>
+    <h1 class="page-hero-title">衛教文章</h1>
+    <p class="page-hero-desc">由醫師撰寫的專業健康知識，幫助您了解各項檢查流程、疾病預防與日常保健。</p>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<section class="articles-section">
+
+  <!-- 分類篩選 -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-cat="all">全部</button>
+    <button class="filter-btn" data-cat="內視鏡">內視鏡</button>
+    <button class="filter-btn" data-cat="超音波">超音波</button>
+    <button class="filter-btn" data-cat="體重管理">體重管理</button>
+    <button class="filter-btn" data-cat="腸胃">腸胃</button>
+    <button class="filter-btn" data-cat="癌症篩檢">癌症篩檢</button>
+  </div>
+
+  <div class="articles-grid" id="articlesGrid">
+
+    <!-- ===== 文章卡片 — 請依此格式新增 ===== -->
+
+    <article class="article-card" data-cat="腸胃 癌症篩檢">
+      <div class="article-card-img">
+        <i class="fa-solid fa-vial-circle-check"></i>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-cat">癌症篩檢</span>
+          <span class="article-date">2026-08-19</span>
+        </div>
+        <h2 class="article-card-title">糞便潛血檢查是什麼？陽性代表得大腸癌了嗎？</h2>
+        <p class="article-card-excerpt">大腸癌長年高居國人癌症發生率前三名，糞便潛血檢查是簡單、非侵入性的第一線篩檢工具。了解檢查原理、流程，以及陽性結果後該如何處理。</p>
+        <a href="article-fobt.html" class="article-card-link">閱讀全文 →</a>
+      </div>
+    </article>
+
+    <article class="article-card" data-cat="超音波">
+      <div class="article-card-img">
+        <i class="fa-solid fa-wave-square"></i>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-cat">超音波</span>
+          <span class="article-date">2026-08-19</span>
+        </div>
+        <h2 class="article-card-title">甲狀腺超音波是什麼？結節要不要緊？</h2>
+        <p class="article-card-excerpt">甲狀腺結節盛行率高，多數是健檢時意外發現。了解甲狀腺超音波能檢查什麼、檢查前準備，以及發現結節後該如何看待與追蹤。</p>
+        <a href="article-thyroid-ultrasound.html" class="article-card-link">閱讀全文 →</a>
+      </div>
+    </article>
+
+    <article class="article-card" data-cat="腸胃 癌症篩檢">
+      <div class="article-card-img">
+        <i class="fa-solid fa-bacterium"></i>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-cat">腸胃</span>
+          <span class="article-date">2026-07-16</span>
+        </div>
+        <h2 class="article-card-title">幽門桿菌是什麼？會致癌嗎？檢測與除菌治療完整說明</h2>
+        <p class="article-card-excerpt">幽門桿菌已被 WHO 列為第一類致癌物質，與胃潰瘍、胃癌密切相關。了解感染途徑、四種檢測方式，以及根除療程的完整注意事項。</p>
+        <a href="article-h-pylori.html" class="article-card-link">閱讀全文 →</a>
+      </div>
+    </article>
+
+    <article class="article-card" data-cat="內視鏡">
+      <div class="article-card-img">
+        <i class="fa-solid fa-microscope"></i>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-cat">內視鏡</span>
+          <span class="article-date">2026-06-16</span>
+        </div>
+        <h2 class="article-card-title">舒眠腸胃鏡是什麼？做之前需要注意哪些事？</h2>
+        <p class="article-card-excerpt">舒眠腸胃鏡透過短效麻醉讓您在無感狀態下完成檢查，大幅降低不適感。本文說明檢查前的飲食準備、禁忌與完整流程。</p>
+        <a href="article-endoscopy.html" class="article-card-link">閱讀全文 →</a>
+      </div>
+    </article>
+
+    <article class="article-card" data-cat="超音波">
+      <div class="article-card-img">
+        <i class="fa-solid fa-x-ray"></i>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-cat">超音波</span>
+          <span class="article-date">2026-06-17</span>
+        </div>
+        <h2 class="article-card-title">腹部超音波是什麼？能檢查哪些器官？做之前要空腹嗎？</h2>
+        <p class="article-card-excerpt">腹部超音波無輻射、無侵入性，可評估肝膽胰脾腎等腹腔臟器，對早期發現肝癌、膽結石、腎臟囊腫非常有效。了解準備方式與完整流程。</p>
+        <a href="article-abdominal-ultrasound.html" class="article-card-link">閱讀全文 →</a>
+      </div>
+    </article>
+
+    <article class="article-card" data-cat="內視鏡">
+      <div class="article-card-img">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-cat">內視鏡</span>
+          <span class="article-date">2026-06-20</span>
+        </div>
+        <h2 class="article-card-title">內視鏡超音波（EUS）是什麼？能發現哪些疾病？</h2>
+        <p class="article-card-excerpt">EUS 結合內視鏡與超音波，可近距離掃描胰臟、膽管、消化道管壁，是早期偵測胰臟癌最靈敏的工具，同時可進行細針穿刺取樣。</p>
+        <a href="article-eus.html" class="article-card-link">閱讀全文 →</a>
+      </div>
+    </article>
+
+    <article class="article-card" data-cat="體重管理">
+      <div class="article-card-img">
+        <i class="fa-solid fa-weight-scale"></i>
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">
+          <span class="article-cat">體重管理</span>
+          <span class="article-date">2025-01-20</span>
+        </div>
+        <h2 class="article-card-title">減重不反彈的關鍵：了解代謝與飲食調整</h2>
+        <p class="article-card-excerpt">許多人減重後容易復胖，原因往往在於錯誤的減重方式。本文介紹科學的體重管理原則，搭配診所的專業營養諮詢服務。</p>
+        <a href="article-weight-management.html" class="article-card-link">閱讀全文 →</a>
+      </div>
+    </article>
+
+    <!-- ===== 在上方依格式新增新文章卡片 ===== -->
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所
+  </div>
+  <div class="footer-copy">© 2026 樹林現代診所 ・ 新北市樹林區中山路一段 78 號</div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  // Filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.article-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      cards.forEach(card => {
+        const cardCats = card.dataset.cat.split(' ');
+        card.style.display = (cat === 'all' || cardCats.includes(cat)) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

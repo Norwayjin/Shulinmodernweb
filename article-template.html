@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ★ 改這裡：文章標題 -->
+<title>文章標題 | 樹林現代診所</title>
+<meta name="description" content="文章摘要（100~160字）">
+<meta name="robots" content="noindex, nofollow">
+<!-- ★ 改這裡：canonical 換成實際檔名 -->
+<link rel="canonical" href="https://www.shulinmodern.com.tw/article-XXXXX.html">
+<meta property="og:image" content="https://www.shulinmodern.com.tw/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ---- 文章頁樣式 ---- */
+  .article-page { background: var(--white); }
+
+  .article-layout {
+    max-width: 780px; margin: 0 auto;
+  }
+
+  /* 文章 Header */
+  .article-header { margin-bottom: 2.5rem; }
+  .article-cats { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .article-cat-tag {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+    background: var(--green-pale); color: var(--green-deep); padding: 0.25rem 0.7rem;
+  }
+  .article-title {
+    font-family: var(--serif); font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700; color: var(--green-deep); line-height: 1.4; margin-bottom: 1.25rem;
+  }
+  .article-meta {
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    font-size: 0.85rem; color: var(--gray-text);
+    padding-bottom: 1.5rem; border-bottom: 1px solid rgba(26,74,58,0.1);
+  }
+  .article-meta-item { display: flex; align-items: center; gap: 0.4rem; }
+  .article-meta-item i { color: var(--green-mid); font-size: 0.9rem; }
+
+  /* 特色圖片 */
+  .article-featured-img {
+    width: 100%; max-height: 420px; object-fit: cover;
+    margin-bottom: 2.5rem; display: block;
+  }
+
+  /* 文章本文 */
+  .article-body { font-size: 1.15rem; line-height: 2; color: var(--text-dark); }
+  .article-body h2 {
+    font-family: var(--serif); font-size: 1.55rem; font-weight: 700;
+    color: var(--green-deep); margin: 2.5rem 0 1rem;
+    padding-left: 0.75rem; border-left: 3px solid var(--gold);
+  }
+  .article-body h3 {
+    font-family: var(--serif); font-size: 1.25rem; font-weight: 700;
+    color: var(--green-deep); margin: 2rem 0 0.75rem;
+  }
+  .article-body p { margin-bottom: 1.25rem; font-weight: 300; }
+  .article-body ul, .article-body ol {
+    padding-left: 1.5rem; margin-bottom: 1.25rem;
+  }
+  .article-body li { margin-bottom: 0.5rem; font-weight: 300; }
+  .article-body strong { font-weight: 500; color: var(--text-dark); }
+  .article-body em { font-style: normal; color: var(--green-deep); font-weight: 500; }
+
+  /* 提示框 */
+  .article-body .tip-box {
+    background: var(--green-pale); border-left: 3px solid var(--green-mid);
+    padding: 1.25rem 1.5rem; margin: 1.75rem 0; border-radius: 0 4px 4px 0;
+  }
+  .article-body .tip-box p { margin-bottom: 0; }
+  .article-body .warning-box {
+    background: #fff8e1; border-left: 3px solid #f59e0b;
+    padding: 1.25rem 1.5rem; margin: 1.75rem 0; border-radius: 0 4px 4px 0;
+  }
+  .article-body .warning-box p { margin-bottom: 0; }
+
+  /* 圖片 */
+  .article-body img { max-width: 100%; height: auto; display: block; margin: 1.5rem 0; }
+  .article-body figure { margin: 1.75rem 0; }
+  .article-body figcaption {
+    font-size: 0.82rem; color: var(--gray-text); text-align: center; margin-top: 0.5rem;
+  }
+
+  /* 文章底部 */
+  .article-footer {
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(26,74,58,0.1);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .article-author {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.875rem; color: var(--gray-text);
+  }
+  .article-author strong { color: var(--green-deep); font-size: 1rem; display: block; margin-bottom: 2px; }
+  .author-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--green-pale); display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--green-deep); flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 { font-size: 1.35rem; }
+    .article-meta { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#news">最新消息</a></li>
+    <li><a href="index.html#services">診所服務</a></li>
+    <li><a href="index.html#doctors">醫師介紹</a></li>
+    <li><a href="index.html#queue">看診號碼</a></li>
+    <li><a href="index.html#hours">門診時間</a></li>
+    <li><a href="health.html" class="active">衛教文章</a></li>
+    <li><a href="media.html">影音資訊</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://www.mainpi.com/query?i=3176" target="_blank" class="nav-cta">查詢看診號碼</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO (短版) -->
+<div class="page-hero" style="padding-bottom:2.5rem;">
+  <div class="page-hero-inner">
+    <span class="page-hero-tag">HEALTH EDUCATION</span>
+    <p style="color:rgba(255,255,255,0.8);font-size:0.9rem;">衛教文章</p>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<section class="article-page">
+  <div class="article-layout">
+
+    <!-- 麵包屑 -->
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="index.html">首頁</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="health.html">衛教文章</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>文章標題</span>  <!-- ★ 改這裡 -->
+    </nav>
+
+    <!-- 文章標頭 -->
+    <header class="article-header">
+      <div class="article-cats">
+        <span class="article-cat-tag">分類</span>  <!-- ★ 改這裡，例如：腸胃鏡 -->
+      </div>
+      <h1 class="article-title">文章標題</h1>  <!-- ★ 改這裡 -->
+      <div class="article-meta">
+        <span class="article-meta-item"><i class="fa-regular fa-calendar"></i> 2025-01-01</span>  <!-- ★ 改日期 -->
+        <span class="article-meta-item"><i class="fa-regular fa-user"></i> 醫師姓名 醫師</span>  <!-- ★ 改作者 -->
+        <span class="article-meta-item"><i class="fa-regular fa-clock"></i> 閱讀約 3 分鐘</span>
+      </div>
+    </header>
+
+    <!-- 特色圖片（可選，不需要就刪除這行）-->
+    <!-- <img class="article-featured-img" src="IMAGE_FILE.jpg" alt="圖片描述"> -->
+
+    <!-- ====== 文章本文 ====== -->
+    <div class="article-body">
+
+      <p>在此輸入文章前言段落。</p>
+
+      <h2>第一個段落標題</h2>
+      <p>段落內容。</p>
+
+      <!-- 提示框範例 -->
+      <div class="tip-box">
+        <p><strong>重點提示：</strong>這裡放重要提醒事項。</p>
+      </div>
+
+      <h2>第二個段落標題</h2>
+      <p>段落內容。</p>
+
+      <ul>
+        <li>清單項目一</li>
+        <li>清單項目二</li>
+        <li>清單項目三</li>
+      </ul>
+
+      <!-- 警告框範例 -->
+      <!-- <div class="warning-box">
+        <p><strong>注意：</strong>這裡放特別注意事項。</p>
+      </div> -->
+
+      <h2>結語</h2>
+      <p>結語段落。若有疑問，歡迎來診洽詢或致電 <strong>02-2675-5858</strong>。</p>
+
+    </div>
+    <!-- ====== 文章本文結束 ====== -->
+
+    <!-- 文章底部：作者 + 返回 -->
+    <div class="article-footer">
+      <div class="article-author">
+        <div class="author-avatar">醫</div>  <!-- ★ 可換成醫師名字第一個字 -->
+        <div>
+          <strong>醫師姓名 醫師</strong>  <!-- ★ 改這裡 -->
+          樹林現代診所
+        </div>
+      </div>
+      <a href="health.html" class="btn-back">← 返回衛教文章</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所
+  </div>
+  <div class="footer-copy">© 2026 樹林現代診所 ・ 新北市樹林區中山路一段 78 號</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+</script>
+</body>
+</html>
