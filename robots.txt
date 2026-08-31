@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /article-template.html
 
-Sitemap: https://www.shulinmodern.com.tw/sitemap.xml
+Sitemap: https://shulinsiandaiclinic.com.tw/sitemap.xml
