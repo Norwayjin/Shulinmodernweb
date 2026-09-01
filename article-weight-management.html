@@ -17,94 +17,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="article.css">
 <style>
-  .article-page { background: var(--white); }
-  .article-layout { max-width: 780px; margin: 0 auto; }
-  .article-header { margin-bottom: 2.5rem; }
-  .article-cats { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
-  .article-cat-tag {
-    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
-    background: var(--green-pale); color: var(--green-deep); padding: 0.25rem 0.7rem;
-  }
-  .article-title {
-    font-family: var(--serif); font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 700; color: var(--green-deep); line-height: 1.4; margin-bottom: 1.25rem;
-  }
-  .article-meta {
-    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-    font-size: 0.85rem; color: var(--gray-text);
-    padding-bottom: 1.5rem; border-bottom: 1px solid rgba(26,74,58,0.1);
-  }
-  .article-meta-item { display: flex; align-items: center; gap: 0.4rem; }
-  .article-meta-item i { color: var(--green-mid); font-size: 0.9rem; }
-  .article-body { font-size: 1.15rem; line-height: 2; color: var(--text-dark); }
-  .article-body h2 {
-    font-family: var(--serif); font-size: 1.55rem; font-weight: 700;
-    color: var(--green-deep); margin: 2.5rem 0 1rem;
-    padding-left: 0.75rem; border-left: 3px solid var(--gold);
-  }
-  .article-body h3 {
-    font-family: var(--serif); font-size: 1.25rem; font-weight: 700;
-    color: var(--green-deep); margin: 2rem 0 0.75rem;
-  }
-  .article-body p { margin-bottom: 1.25rem; font-weight: 300; }
-  .article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
-  .article-body li { margin-bottom: 0.5rem; font-weight: 300; }
-  .article-body strong { font-weight: 500; color: var(--text-dark); }
-  .article-body em { font-style: normal; color: var(--green-deep); font-weight: 500; }
-  .article-body .tip-box {
-    background: var(--green-pale); border-left: 3px solid var(--green-mid);
-    padding: 1.25rem 1.5rem; margin: 1.75rem 0; border-radius: 0 4px 4px 0;
-  }
-  .article-body .tip-box p { margin-bottom: 0; }
-  .article-body .warning-box {
-    background: #fff8e1; border-left: 3px solid #f59e0b;
-    padding: 1.25rem 1.5rem; margin: 1.75rem 0; border-radius: 0 4px 4px 0;
-  }
-  .article-body .warning-box p { margin-bottom: 0; }
-  .step-list { list-style: none; padding-left: 0; counter-reset: step-counter; }
-  .step-list li {
-    counter-increment: step-counter; margin-bottom: 0.75rem; font-weight: 300;
-    display: flex; align-items: flex-start; gap: 0.75rem;
-  }
-  .step-list li::before {
-    content: counter(step-counter);
-    background: var(--green-deep); color: #fff;
-    width: 24px; height: 24px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 0.15rem;
-  }
-  .article-body .step-list li strong { white-space: nowrap; }
-  .finding-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 0.9rem; margin: 1.5rem 0;
-  }
-  .finding-card {
-    background: var(--gray-light); padding: 1rem 1.25rem;
-    border-bottom: 2px solid var(--green-light);
-  }
-  .finding-card .finding-name {
-    font-family: var(--serif); font-size: 1.2rem; font-weight: 700;
-    color: var(--green-deep); margin-bottom: 0.35rem;
-  }
-  .finding-card p { font-size: 1rem; color: var(--gray-text); margin-bottom: 0; line-height: 1.8; }
-  .article-footer {
-    margin-top: 3rem; padding-top: 2rem;
-    border-top: 1px solid rgba(26,74,58,0.1);
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-  }
-  .article-author { display: flex; align-items: center; gap: 1rem; font-size: 0.875rem; color: var(--gray-text); }
-  .article-author strong { color: var(--green-deep); font-size: 1rem; display: block; margin-bottom: 2px; }
-  .author-avatar {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: var(--green-pale); display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--green-deep); flex-shrink: 0;
-  }
-  @media (max-width: 768px) {
-    .article-body h2 { font-size: 1.35rem; }
-    .article-meta { gap: 0.75rem; }
-    .finding-grid { grid-template-columns: 1fr; }
-  }
+  /* 本篇專屬：finding 卡片固定兩欄、間距略大 */
+  .finding-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
+  @media (max-width: 768px) { .finding-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -241,13 +158,6 @@
   <div class="footer-copy">© 2026 樹林現代診所 ・ 新北市樹林區中山路一段 78 號</div>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('navHamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-</script>
+<script src="nav.js"></script>
 </body>
 </html>
