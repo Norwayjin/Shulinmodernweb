@@ -19,13 +19,89 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="article.css">
+<!-- ⚠️ 結構化資料：複製本範本新增文章後，下面兩段 JSON-LD 必須一併修改
+     headline / description / url / datePublished / dateModified / author / keywords
+     以及 BreadcrumbList 最後一項的 name，都要換成新文章的內容。
+     改完可用 https://search.google.com/test/rich-results 驗證。 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": "文章標題",
+  "description": "文章摘要（100~160字）",
+  "url": "https://shulinsiandaiclinic.com.tw/article-XXXXX.html",
+  "image": "https://shulinsiandaiclinic.com.tw/og-image.jpg",
+  "inLanguage": "zh-TW",
+  "datePublished": "2025-01-01",
+  "dateModified": "2025-01-01",
+  "author": {
+    "@type": "Person",
+    "name": "姓名",
+    "jobTitle": "醫師",
+    "affiliation": {
+      "@type": "MedicalClinic",
+      "name": "樹林現代診所",
+      "url": "https://shulinsiandaiclinic.com.tw/"
+    }
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "樹林現代診所",
+    "url": "https://shulinsiandaiclinic.com.tw/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shulinsiandaiclinic.com.tw/Logo.jpg"
+    },
+    "telephone": "+886-2-2675-5858",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "中山路一段78號",
+      "addressLocality": "樹林區",
+      "addressRegion": "新北市",
+      "postalCode": "238",
+      "addressCountry": "TW"
+    }
+  },
+  "keywords": "分類",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "樹林現代診所",
+    "url": "https://shulinsiandaiclinic.com.tw/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://shulinsiandaiclinic.com.tw/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "衛教文章",
+      "item": "https://shulinsiandaiclinic.com.tw/health.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "文章標題"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所</a>
+    <img src="Logo.jpg" alt="logo" width="824" height="753">樹林<span>現代</span>診所</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html#news">最新消息</a></li>
     <li><a href="index.html#services">診所服務</a></li>
@@ -131,7 +207,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="Logo.jpg" alt="logo">樹林<span>現代</span>診所
+    <img src="Logo.jpg" alt="logo" width="824" height="753" loading="lazy" decoding="async">樹林<span>現代</span>診所
   </div>
   <div class="footer-copy">© 2026 樹林現代診所 ・ 新北市樹林區中山路一段 78 號</div>
 </footer>
